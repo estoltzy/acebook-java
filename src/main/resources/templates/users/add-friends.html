@@ -5,10 +5,18 @@
         <title>Friends</title>
         <link rel="stylesheet" href="/main.css" />
     </head>
+    <header>
+        <a href="/">
+        </a>
+        <h1>Acebook : Connecting People</h1>
+    </header>
+
+    <div th:insert="navbar :: navbar">  </div>
+
     <body>
         <ul th:each="this_user: ${users}">
             <a th:text="${this_user.username}" />
-            <form action="#" th:action="@{/posts/add-friends}" method="get">
+            <form action="#" th:action="@{/users/message-friend}" method="get">
                 <input type='submit' value="Add friend" />
             </form>
 
