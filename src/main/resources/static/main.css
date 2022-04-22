@@ -122,3 +122,9 @@ h1 {
     font-family: 'Monaco', cursive;
     font-size: 16px;
 }
+
+.authorization {
+    float: right;
+    font-family: 'Monaco', cursive;
+    font-size: 10px;
+}
