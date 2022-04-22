@@ -45,6 +45,12 @@ public class UsersController {
         return "/users/add-friends";
         }
 
+        @GetMapping("/users/message-friend")
+        public String message(){
+           return "/users/message-friend";
+        }
+
+
 
     }
 
