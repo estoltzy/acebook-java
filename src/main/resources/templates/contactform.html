@@ -8,11 +8,15 @@
     </head>
     <body>
     
+  <header>
+    <h1>Acebook : Connecting People</h1>
+  </header>
+
     <div th:insert="navbar :: navbar">  </div>
 
     <h1>Contact Us!</h1>
 
-    <div sec:authorize="isAuthenticated()">
+    <div class="authorization" sec:authorize="isAuthenticated()">
         Signed in as <span sec:authentication="name"></span>
     </div>
 
