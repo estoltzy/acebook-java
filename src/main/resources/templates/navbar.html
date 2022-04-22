@@ -15,15 +15,17 @@
               </div>
               <ul class="nav navbar-nav">
                   <a class="nav-link" th:href="@{/posts}">Posts</a>
+                  <a class="navbar" th:href="@{/users/add-friends}">Add friends</a>
               </ul>
               <ul>
-                  <a class="navbar right" th:href="@{/users}">Log in</a>
+                <a class="navbar right" th:href="@{/logout}">Logout</a> 
 
-                  <a class="navbar right" th:href="@{/users/new}">Sign up</a>
+                <a class="navbar right" th:href="@{/users}">Log in</a>
 
-                  <a class="navbar right" th:href="@{/users/add-friends}">Add friends</a>
+                <a class="navbar right" th:href="@{/users/new}">Sign up</a>
       
-                  <a class="navbar right" th:href="@{/contact_page}">Contact us!</a>    
+                <a class="navbar right" th:href="@{/contact_page}">Contact us!</a> 
+                  
               </ul>
           </div>    
       </nav>
