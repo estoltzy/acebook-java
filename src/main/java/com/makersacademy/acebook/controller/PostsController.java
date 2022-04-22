@@ -34,7 +34,6 @@ public class PostsController {
         model.addAttribute("post", new Post());
         return "posts/index";
     }
-    // include logic in index that checks parameters (whether button has been clicked for reverse)
 
     @PostMapping("/posts")
     public RedirectView create(@ModelAttribute Post post) {
@@ -48,14 +47,12 @@ public class PostsController {
         Iterable<Post> reversed_posts = repository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
         model.addAttribute("reversed_posts", reversed_posts);
         return "posts/reverse";
-        
     }
 
     @PostMapping("/posts/incrementlikes")
     public RedirectView incrementLikes(@RequestParam Long postId) {
         Optional<Post> potentialPost = repository.findById(postId);
-        if (potentialPost.isPresent())
-        {
+        if (potentialPost.isPresent()) {
             Post post = potentialPost.get();
             post.addLike();
             repository.save(post);
