@@ -43,9 +43,9 @@
     <ul th:each="this_post: ${posts}">
         <div class="single-post">
         <a th:text="${this_post.content}" /></div>
-        <form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
-            <div class="button"><input type='submit' value="Like" id="*{this_post.id}" /></div>
-        </form>
+        <div class="button"><form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
+            <input type='submit' value="Like" id="*{this_post.id}" />
+        </form></div>
         <div class="likes"><a>Likes: <span th:text="${this_post.likeCount}" /> </span></a></div>
     </ul>
 

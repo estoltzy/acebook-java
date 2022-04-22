@@ -15,6 +15,9 @@ h1 {
     font-size: 60;
     color: black;
     word-spacing: 2;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .navbar {
@@ -91,7 +94,7 @@ h1 {
     left: 50%;
     margin-left: 360px;
     font-family: 'Monaco', cursive;
-    font-size: 30;
+    font-size: 20px;
 }
 
 .likes {
@@ -101,18 +104,21 @@ h1 {
     left: 50%;
     margin-left: 360px;
     font-family: 'Monaco', cursive;
-    font-size: 30;
+    font-size: 12px;
+    display: inline-block;
 }
 
 .button {
     background-color: white; 
     border: none;
+    border-radius: 4px;
     color: white;
     width: 600px;
     text-align: center;
     justify-content: center;
     left: 50%;
     margin-left: 360px;
+    display: inline-block;
     font-family: 'Monaco', cursive;
-    font-size: 30;
+    font-size: 16px;
 }
