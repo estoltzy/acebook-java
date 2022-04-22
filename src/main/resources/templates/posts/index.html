@@ -12,7 +12,7 @@
 
     <h1>Posts</h1>
 
-    <div sec:authorize="isAuthenticated()">
+    <div class="authorization" sec:authorize="isAuthenticated()">
         Signed in as <span sec:authentication="name"></span>
     </div>
 
@@ -39,12 +39,14 @@
         <p><input type="submit" value="View Newest First" /></p>
     </form>
 
+    
     <ul th:each="this_post: ${posts}">
-        <a th:text="${this_post.content}" />
-        <form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
+        <div class="single-post">
+        <a th:text="${this_post.content}" /></div>
+        <div class="button"><form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
             <input type='submit' value="Like" id="*{this_post.id}" />
-        </form>
-        <a>Likes: <span th:text="${this_post.likeCount}" /> </span></a>
+        </form></div>
+        <div class="likes"><a>Likes: <span th:text="${this_post.likeCount}" /> </span></a></div>
     </ul>
 
     </body>
