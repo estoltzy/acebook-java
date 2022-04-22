@@ -44,6 +44,7 @@
         <form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
             <input type='submit' value="Like" id="*{this_post.id}" />
         </form>
+        <a>Likes: <span th:text="${this_post.likeCount}" /> </span></a>
     </ul>
 
     </body>
