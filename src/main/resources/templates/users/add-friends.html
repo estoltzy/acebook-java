@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org" >
+    <head lang="en">
+        <meta charset="UTF-8"/>
+        <title>Friends</title>
+        <link rel="stylesheet" href="/main.css" />
+    </head>
+    <body>
+        <ul th:each="this_user: ${users}">
+            <a th:text="${this_user.username}" />
+            <form action="#" th:action="@{/posts/add-friends}" method="get">
+                <input type='submit' value="Add friend" />
+            </form>
+
+        </ul>
+
+    </body>
+    </html>
