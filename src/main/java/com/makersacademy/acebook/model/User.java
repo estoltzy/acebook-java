@@ -3,6 +3,9 @@ package com.makersacademy.acebook.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
 
@@ -10,9 +13,12 @@ import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "USERS")
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +26,9 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
+
+    @OneToMany(mappedBy="posts")
+    private Set<Post> posts;
 
     public User() {
         this.enabled = TRUE;

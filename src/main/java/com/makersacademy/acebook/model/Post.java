@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Min;
@@ -34,7 +37,11 @@ public class Post {
     @Column(nullable = true, length = 250)
     private String photos;
     @Column(name="user_id")
-    private ForeignKey user_id;
+    private int user_id;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 
     public Post() {}
 
