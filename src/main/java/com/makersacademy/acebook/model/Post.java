@@ -33,6 +33,8 @@ public class Post {
     private int likeCount = 0;
     @Column(nullable = true, length = 250)
     private String photos;
+    @Column(name="user_id")
+    private ForeignKey user_id;
 
     public Post() {}
 
@@ -51,4 +53,7 @@ public class Post {
     public int getLikeCount() {
         return likeCount;
     }
+
+    public ForeignKey getUserId() { return this.user_id; }
+    public void setUserId(ForeignKey user_id) {this.user_id = user_id; }
 }
