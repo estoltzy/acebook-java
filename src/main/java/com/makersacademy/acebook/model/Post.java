@@ -2,12 +2,9 @@ package com.makersacademy.acebook.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
@@ -23,6 +20,7 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -42,10 +40,6 @@ public class Post {
     private String photos;
     @Column(name="user_id")
     private ForeignKey user_id;
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id", nullable=false)
-    private User user;
 
     public Post() {}
 
@@ -68,7 +62,7 @@ public class Post {
     public ForeignKey getUserId() { return this.user_id; }
     public void setUserId(ForeignKey user_id) {this.user_id = user_id; }
 
-    public List<Post> listPostsByUser() {
-        return UserRepository.listPostsWithUsername();
-    }
+    // public List<Post> listPostsByUser() {
+    //     return UserRepository.listPostsWithUsername();
+    // }
 }

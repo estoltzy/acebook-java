@@ -1,8 +1,10 @@
 package com.makersacademy.acebook.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
@@ -30,8 +32,16 @@ public class User {
     private String password;
     private boolean enabled;
 
-    @OneToMany(targetEntity = Post.class, mappedBy="user")
-    private List<Post> posts;
+    // @OneToMany(mappedBy="id")
+    // private List<Post> posts;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn (name="user_id", referencedColumnName ="id")
+    private Set<Post> posts;
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
 
     public User() {
         this.enabled = TRUE;
@@ -54,7 +64,7 @@ public class User {
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
 
-    public List<Post> getPostsWithUsername() {
-        return posts;
-    }
+    // public List<Post> getPostsWithUsername() {
+    //     return posts;
+    // }
 }
