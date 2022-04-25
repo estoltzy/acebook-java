@@ -7,6 +7,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
+
+import java.util.List;
+
 import javax.persistence.GenerationType;
 
 import lombok.Data;
@@ -27,8 +30,8 @@ public class User {
     private String password;
     private boolean enabled;
 
-    @OneToMany(mappedBy="posts")
-    private Set<Post> posts;
+    @OneToMany(targetEntity = Post.class, mappedBy="user")
+    private List<Post> posts;
 
     public User() {
         this.enabled = TRUE;
@@ -50,4 +53,8 @@ public class User {
     public String getPassword() { return this.password; }
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
+
+    public List<Post> getPostsWithUsername() {
+        return posts;
+    }
 }

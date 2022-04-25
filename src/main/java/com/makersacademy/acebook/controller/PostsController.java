@@ -1,6 +1,7 @@
 package com.makersacademy.acebook.controller;
 
 import com.makersacademy.acebook.model.Post;
+import com.makersacademy.acebook.model.User;
 import com.makersacademy.acebook.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -38,7 +39,7 @@ public class PostsController {
     @PostMapping("/posts")
     public RedirectView create(@ModelAttribute Post post) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        post.getUserId();
+        post.listPostsByUser();
         repository.save(post);
         return new RedirectView("/posts");
     }

@@ -2,6 +2,7 @@ package com.makersacademy.acebook.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,11 +15,14 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.makersacademy.acebook.repository.UserRepository;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.Data;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Entity
@@ -37,9 +41,9 @@ public class Post {
     @Column(nullable = true, length = 250)
     private String photos;
     @Column(name="user_id")
-    private int user_id;
+    private ForeignKey user_id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id", nullable=false)
     private User user;
 
@@ -63,4 +67,8 @@ public class Post {
 
     public ForeignKey getUserId() { return this.user_id; }
     public void setUserId(ForeignKey user_id) {this.user_id = user_id; }
+
+    public List<Post> listPostsByUser() {
+        return UserRepository.listPostsWithUsername();
+    }
 }
