@@ -10,9 +10,4 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-  @Query("SELECT users.username, posts.content FROM posts INNER JOIN users ON posts.user_id=users.id;")
-  public static List<Post> listPostsWithUsername() {
-    return listPostsWithUsername();
-  }
-
 }

@@ -30,7 +30,6 @@ public class PostsController {
 
     @GetMapping("/posts")
     public String index(Model model) {
-        Post post = repository.findPostByUserId(id); //needs to draw in usernames with posts from database //
         Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
         model.addAttribute("posts", posts);
         model.addAttribute("post", new Post());
@@ -40,7 +39,6 @@ public class PostsController {
     @PostMapping("/posts")
     public RedirectView create(@ModelAttribute Post post) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        post.getUserId();
         repository.save(post);
         return new RedirectView("/posts");
     }

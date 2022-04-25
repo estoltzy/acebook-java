@@ -32,14 +32,10 @@ public class User {
     private String password;
     private boolean enabled;
 
-    // @OneToMany(mappedBy="id")
-    // private List<Post> posts;
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Post> posts;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn (name="user_id", referencedColumnName ="id")
-    private Set<Post> posts;
-
-    public Set<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
