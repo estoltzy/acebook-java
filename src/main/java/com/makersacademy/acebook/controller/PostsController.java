@@ -35,6 +35,8 @@ public class PostsController {
     @Autowired
     UserRepository userRepository;
 
+// latest version 26/04 14:37
+
     @GetMapping("/posts")
     public String index(Model model) {
         Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
