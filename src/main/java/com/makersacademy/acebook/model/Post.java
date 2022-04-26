@@ -33,6 +33,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
     
     @NotBlank (message = "Post is mandatory")
@@ -48,7 +49,6 @@ public class Post {
     private String photos;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @MapsId
     @JoinColumn(name="user_id")
     private User user;
 

@@ -133,3 +133,14 @@ h1 {
     font-family: 'Monaco', cursive;
     font-size: 10px;
 }
+
+.username {
+    width: 600px;
+    text-align: justify;
+    justify-content: center;
+    left: 50%;
+    margin-left: 360px;
+    font-family: 'Monaco', cursive;
+    font-size: 20px;
+    color: rgb(72, 32, 165);
+}

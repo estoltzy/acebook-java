@@ -9,7 +9,7 @@
     <body>
     
     <header>
-        <h1>Acebook : Connecting People</h1>
+        <h1>Acebook : Connecting Social Butterflies</h1>
     </header>
 
     <div th:insert="navbar :: navbar">  </div>
@@ -45,8 +45,9 @@
 
     
     <ul th:each="this_post: ${posts}">
+        <div class="username"> 
+        <a th:text="${this_post.user.username}" </></div>
         <div class="single-post">
-        <a th:text="${this_post.user.username}" />
         <a th:text="${this_post.content}" /></div>
         <div class="button"><form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
             <input type='submit' value="Like" id="*{this_post.id}" />

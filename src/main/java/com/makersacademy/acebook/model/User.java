@@ -34,7 +34,7 @@ public class User {
     private boolean enabled;
 
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Post> posts = new ArrayList<Post>();
+    private List<Post> posts;
 
     public List<Post> getPosts() {
         return posts;
