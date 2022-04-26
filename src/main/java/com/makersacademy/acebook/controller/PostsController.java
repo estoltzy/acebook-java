@@ -43,17 +43,17 @@ public class PostsController {
         return "posts/index";
     }
 
-    private User getLoggedInUser(Principal principle) {
+    private User getLoggedInUser(Principal principal) {
         // Optional<User> user = userRepository.findById(Long.valueOf(1));
-        String username = principle.getName();
+        String username = principal.getName();
         User user = userRepository.findByUsername(username);
         return user;
     }
 
     @PostMapping("/posts")
-    public RedirectView create(@ModelAttribute Post post, Principal principle) {
+    public RedirectView create(@ModelAttribute Post post, Principal principal) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        post.setUser(getLoggedInUser(principle));
+        post.setUser(getLoggedInUser(principal));
         repository.save(post);
         return new RedirectView("/posts");
     }
