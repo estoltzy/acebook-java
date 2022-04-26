@@ -44,7 +44,6 @@ public class PostsController {
     }
 
     private User getLoggedInUser(Principal principal) {
-        // Optional<User> user = userRepository.findById(Long.valueOf(1));
         String username = principal.getName();
         User user = userRepository.findByUsername(username);
         return user;
