@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.Principal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -42,15 +43,17 @@ public class PostsController {
         return "posts/index";
     }
 
-    private User getLoggedInUser() {
-        Optional<User> user = userRepository.findById(Long.valueOf(1));
-        return user.get();
+    private User getLoggedInUser(Principal principle) {
+        // Optional<User> user = userRepository.findById(Long.valueOf(1));
+        String username = principle.getName();
+        User user = userRepository.findByUsername(username);
+        return user;
     }
 
     @PostMapping("/posts")
-    public RedirectView create(@ModelAttribute Post post) {
+    public RedirectView create(@ModelAttribute Post post, Principal principle) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        post.setUser(getLoggedInUser());
+        post.setUser(getLoggedInUser(principle));
         repository.save(post);
         return new RedirectView("/posts");
     }
