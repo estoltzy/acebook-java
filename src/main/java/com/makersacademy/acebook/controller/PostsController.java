@@ -2,8 +2,10 @@ package com.makersacademy.acebook.controller;
 
 import com.makersacademy.acebook.model.Post;
 import com.makersacademy.acebook.model.User;
+import com.makersacademy.acebook.model.Comment;
 import com.makersacademy.acebook.repository.PostRepository;
 import com.makersacademy.acebook.repository.UserRepository;
+import com.makersacademy.acebook.repository.CommentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -35,7 +37,8 @@ public class PostsController {
     @Autowired
     UserRepository userRepository;
 
-// latest version 26/04 14:37
+    @Autowired
+    CommentRepository commentRepository;
 
     @GetMapping("/posts")
     public String index(Model model) {
