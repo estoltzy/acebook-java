@@ -14,7 +14,7 @@
 
     <div th:insert="navbar :: navbar">  </div>
 
-    <h1>Posts</h1>
+    <h1>Newest Posts</h1>
 
     <div class="authorization" sec:authorize="isAuthenticated()">
         Signed in as <span sec:authentication="name"></span>
@@ -26,7 +26,14 @@
     </form> -->
 
     <ul th:each="post: ${reversed_posts}">
-        <li th:text="${post.content}" />
+        <div class="username"> 
+            <a th:text="${post.user.username}" </></div>
+            <div class="single-post">
+            <a th:text="${post.content}" /></div>
+            <div class="button"><form action="#" th:action="@{/posts/incrementlikes(postId=${post.id})}" method="post">
+                <input type='submit' value="Like" id="*{post.id}" />
+            </form></div>
+            <div class="likes"><a>Likes: <span th:text="${post.likeCount}" /> </span></a></div>
     </ul>
 
     </body>
