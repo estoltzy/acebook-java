@@ -10,6 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.GenerationType;
@@ -33,7 +34,7 @@ public class User {
     private boolean enabled;
 
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<Post>();
 
     public List<Post> getPosts() {
         return posts;
