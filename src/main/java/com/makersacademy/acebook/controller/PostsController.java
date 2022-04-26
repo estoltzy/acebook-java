@@ -1,7 +1,10 @@
 package com.makersacademy.acebook.controller;
 
 import com.makersacademy.acebook.model.Post;
+import com.makersacademy.acebook.model.User;
 import com.makersacademy.acebook.repository.PostRepository;
+import com.makersacademy.acebook.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import antlr.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.io.FileInputStream;
@@ -27,6 +31,9 @@ public class PostsController {
     @Autowired
     PostRepository repository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping("/posts")
     public String index(Model model) {
         Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
@@ -35,9 +42,15 @@ public class PostsController {
         return "posts/index";
     }
 
+    private User getLoggedInUser() {
+        Optional<User> user = userRepository.findById(Long.valueOf(1));
+        return user.get();
+    }
+
     @PostMapping("/posts")
     public RedirectView create(@ModelAttribute Post post) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        post.setUser(getLoggedInUser());
         repository.save(post);
         return new RedirectView("/posts");
     }
