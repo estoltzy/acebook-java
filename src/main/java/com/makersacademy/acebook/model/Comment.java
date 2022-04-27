@@ -36,17 +36,18 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="comment_content")
     private String comment_content;
 
     public Comment() {}
-
+    
     public Comment(String comment_content) {
         this.comment_content = comment_content;
     }
 
     public String getContent() { return this.comment_content; }
     public Long getId() { return this.id; }
-    public void setCommentcontent(String comment_content) { this.comment_content = comment_content; }
-    public void ssetCommentcontent(String comment_content) { this.comment_content = comment_content; }
+    public String getcomment_content() { return this.comment_content; }
+    public void setcomment_content(String comment_content) { this.comment_content = comment_content; }
 
     }
