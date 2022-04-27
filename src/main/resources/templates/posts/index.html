@@ -46,10 +46,10 @@
     
     <ul th:each="this_post: ${posts}">
         <div class="username"> 
-        <a th:text="${this_post.user.username}" </></div>
+        <img th:src="${this_post.user.photoLocation}" ></img>
+        <a th:text="${this_post.user.username}" ></a></div>
         <div class="single-post">
-        <a th:text="${this_post.content}" /></div>
-
+        <a th:text="${this_post.content}" ></a></div>
         <div class="button"><form action="#" th:action="@{/posts/incrementlikes(postId=${this_post.id})}" method="post">
             <input type='submit' value="Like" id="*{this_post.id}" />
         </form></div>

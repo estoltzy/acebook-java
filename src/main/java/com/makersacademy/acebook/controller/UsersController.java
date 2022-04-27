@@ -38,19 +38,53 @@ public class UsersController {
     public RedirectView login() {
         return new RedirectView("/login");
     }
-        @GetMapping("/users/add-friends")
-        public String befriendUser(Model model){
+    
+    @GetMapping("/users/add-friends")
+    public String befriendUser(Model model){
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
         return "/users/add-friends";
-        }
-
-        @GetMapping("/users/message-friend")
-        public String message(){
-           return "/users/message-friend";
-        }
-
-
-
     }
 
+    @GetMapping("/users/message-friend")
+    public String message(){
+           return "/users/message-friend";
+    }
+
+    @GetMapping("/account")
+    public String addProfilePhoto(Model model) {
+        Iterable<User> users = userRepository.findAll();
+        model.addAttribute("photoLocation", users);
+        return "/account";
+    }
+
+    @PostMapping("/account")
+    public RedirectView addProfilePhoto(@ModelAttribute User user, String photoLocation) {
+        user.setPhotoLocation(photoLocation);
+        userRepository.save(user);
+        return new RedirectView("/account");
+    }
+}
+
+// @GetMapping("/posts")
+// public String index(Model model) {
+//     Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+//     model.addAttribute("posts", posts);
+//     model.addAttribute("post", new Post());
+//     return "posts/index";
+   
+// @PostMapping("/posts")
+// public RedirectView create(@ModelAttribute Post post, Principal principal) {
+//     post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//     post.setUser(getLoggedInUser(principal));
+//     repository.save(post);
+//     return new RedirectView("/posts");
+// }
+
+// @GetMapping("/comments")
+// public String index(Model model) {
+//     Iterable<Comment> comments = commentRepository.findAll();
+//     model.addAttribute("comment", new Comment());
+//     model.addAttribute("comments", comments);
+//     return "comments/index";
+// }
