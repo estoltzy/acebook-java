@@ -20,4 +20,9 @@
         Signed in as <span sec:authentication="name"></span>
     </div>
 
+    <form action="#" th:action="@{/account}" th:object="${user}" method="post">
+      <p>Change Profile Picture <input type="text" th:field="*{photoLocation}" /></p>
+      <p><input type="submit" value="Submit" /></p>
+  </form>
+
   </body>

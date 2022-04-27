@@ -51,6 +51,21 @@ public class UsersController {
            return "/users/message-friend";
     }
 
+//     @GetMapping("/account")
+//     public String addProfilePhoto() {
+//         return "/account";
+//     }
 
+//     @PostMapping("/account")
+//     public RedirectView create() {
+//         return new RedirectView("/account");
+//     }
 }
 
+
+//     public RedirectView create(@ModelAttribute Post post, Principal principal) {
+//         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//         post.setUser(getLoggedInUser(principal));
+//         repository.save(post);
+//         return new RedirectView("/posts");
+   
