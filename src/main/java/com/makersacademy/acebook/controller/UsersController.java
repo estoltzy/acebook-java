@@ -51,15 +51,17 @@ public class UsersController {
            return "/users/message-friend";
     }
 
-//     @GetMapping("/account")
-//     public String addProfilePhoto() {
-//         return "/account";
-//     }
+    @GetMapping("/account")
+    public String addProfilePhoto(Model model) {
+        return "/account";
+    }
 
-//     @PostMapping("/account")
-//     public RedirectView create() {
-//         return new RedirectView("/account");
-//     }
+    @PostMapping("/account")
+    public RedirectView submitProfilePhoto(@ModelAttribute User user, String photoLocation) {
+        user.setPhotoLocation(photoLocation);
+        userRepository.save(user);
+        return new RedirectView("/account");
+    }
 }
 
 
@@ -69,3 +71,10 @@ public class UsersController {
 //         repository.save(post);
 //         return new RedirectView("/posts");
    
+// @GetMapping("/comments")
+// public String index(Model model) {
+//     Iterable<Comment> comments = commentRepository.findAll();
+//     model.addAttribute("comment", new Comment());
+//     model.addAttribute("comments", comments);
+//     return "comments/index";
+// }
