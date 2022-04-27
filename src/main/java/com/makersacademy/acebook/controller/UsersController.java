@@ -53,13 +53,13 @@ public class UsersController {
 
     @GetMapping("/account")
     public String addProfilePhoto(Model model) {
-        Iterable<User> users = userRepository.findAll();
-        model.addAttribute("photoLocation", users);
+        // Iterable<User> users = userRepository.findAll();
+        model.addAttribute("photoLocation", user.getPhotoLocation());
         return "/account";
     }
 
     @PostMapping("/account")
-    public RedirectView addProfilePhoto(@ModelAttribute User user, String photoLocation) {
+    public RedirectView addProfilePhoto(User user, String photoLocation) {
         user.setPhotoLocation(photoLocation);
         userRepository.save(user);
         return new RedirectView("/account");
