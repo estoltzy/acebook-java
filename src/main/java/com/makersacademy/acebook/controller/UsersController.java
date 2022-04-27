@@ -53,24 +53,34 @@ public class UsersController {
 
     @GetMapping("/account")
     public String addProfilePhoto(Model model) {
+        Iterable<User> users = userRepository.findAll();
+        model.addAttribute("photoLocation", users);
         return "/account";
     }
 
     @PostMapping("/account")
-    public RedirectView submitProfilePhoto(@ModelAttribute User user, String photoLocation) {
+    public RedirectView addProfilePhoto(@ModelAttribute User user, String photoLocation) {
         user.setPhotoLocation(photoLocation);
         userRepository.save(user);
         return new RedirectView("/account");
     }
 }
 
-
-//     public RedirectView create(@ModelAttribute Post post, Principal principal) {
-//         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-//         post.setUser(getLoggedInUser(principal));
-//         repository.save(post);
-//         return new RedirectView("/posts");
+// @GetMapping("/posts")
+// public String index(Model model) {
+//     Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+//     model.addAttribute("posts", posts);
+//     model.addAttribute("post", new Post());
+//     return "posts/index";
    
+// @PostMapping("/posts")
+// public RedirectView create(@ModelAttribute Post post, Principal principal) {
+//     post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//     post.setUser(getLoggedInUser(principal));
+//     repository.save(post);
+//     return new RedirectView("/posts");
+// }
+
 // @GetMapping("/comments")
 // public String index(Model model) {
 //     Iterable<Comment> comments = commentRepository.findAll();
