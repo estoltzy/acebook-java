@@ -38,19 +38,19 @@ public class UsersController {
     public RedirectView login() {
         return new RedirectView("/login");
     }
-        @GetMapping("/users/add-friends")
-        public String befriendUser(Model model){
+    
+    @GetMapping("/users/add-friends")
+    public String befriendUser(Model model){
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
         return "/users/add-friends";
-        }
-
-        @GetMapping("/users/message-friend")
-        public String message(){
-           return "/users/message-friend";
-        }
-
-
-
     }
+
+    @GetMapping("/users/message-friend")
+    public String message(){
+           return "/users/message-friend";
+    }
+
+
+}
 

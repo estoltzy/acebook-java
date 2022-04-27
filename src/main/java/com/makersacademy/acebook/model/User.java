@@ -1,5 +1,6 @@
 package com.makersacademy.acebook.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,9 @@ public class User {
     private String password;
     private boolean enabled;
 
+    @Column(name="user_photo")
+    private String photoLocation;
+
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Post> posts;
 
@@ -61,7 +65,6 @@ public class User {
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
 
-    // public List<Post> getPostsWithUsername() {
-    //     return posts;
-    // }
+    public String getPhotoLocation() {return this.photoLocation; }
+    public void setPhotoLocation(String photoLocation) {this.photoLocation = photoLocation; }
 }
