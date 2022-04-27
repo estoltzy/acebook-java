@@ -48,7 +48,7 @@ public class PostsController {
         return "posts/index";
     }
 
-    private User getLoggedInUser(Principal principal) {
+    public static User getLoggedInUser(Principal principal, UserRepository userRepository) {
         String username = principal.getName();
         User user = userRepository.findByUsername(username);
         return user;
@@ -57,7 +57,7 @@ public class PostsController {
     @PostMapping("/posts")
     public RedirectView create(@ModelAttribute Post post, Principal principal) {
         post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        post.setUser(getLoggedInUser(principal));
+        post.setUser(getLoggedInUser(principal, userRepository));
         repository.save(post);
         return new RedirectView("/posts");
     }

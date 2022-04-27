@@ -1,5 +1,7 @@
 package com.makersacademy.acebook.controller;
 
+import java.security.Principal;
+
 import com.makersacademy.acebook.model.Authority;
 import com.makersacademy.acebook.model.User;
 import com.makersacademy.acebook.repository.AuthoritiesRepository;
@@ -53,15 +55,15 @@ public class UsersController {
 
     @GetMapping("/account")
     public String addProfilePhoto(Model model) {
-        // Iterable<User> users = userRepository.findAll();
-        model.addAttribute("photoLocation", user.getPhotoLocation());
+        model.addAttribute("user", new User());
         return "/account";
     }
 
     @PostMapping("/account")
-    public RedirectView addProfilePhoto(User user, String photoLocation) {
-        user.setPhotoLocation(photoLocation);
-        userRepository.save(user);
+    public RedirectView addProfilePhoto(@ModelAttribute User user, Principal principal) {
+        User loggedInUser = PostsController.getLoggedInUser(principal, userRepository);
+        loggedInUser.setPhotoLocation(user.getPhotoLocation());
+        userRepository.save(loggedInUser);
         return new RedirectView("/account");
     }
 }
