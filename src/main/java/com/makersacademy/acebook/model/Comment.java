@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -36,8 +35,9 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="comment_content")
-    private String comment_content;
+    //@Column(name="comment_content")
+    public String comment_content;
+    
 
     public Comment() {}
     
