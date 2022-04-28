@@ -37,6 +37,12 @@ public class Comment {
     public Long id;
     @Column(name="comment_content")
     public String comment_content;
+
+    @ManyToOne(
+        fetch = FetchType.LAZY
+)
+@JoinColumn(name="post_id")
+Post post;
     
 
     public Comment() {}
@@ -49,5 +55,8 @@ public class Comment {
     public Long getId() { return this.id; }
     public String getcomment_content() { return this.comment_content; }
     public void setcomment_content(String comment_content) { this.comment_content = comment_content; }
+
+    public Post getPost() { return this.post; }
+    public void setUser(Post post) { this.post = post; }
 
     }
