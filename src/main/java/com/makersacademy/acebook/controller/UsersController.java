@@ -68,25 +68,3 @@ public class UsersController {
     }
 }
 
-// @GetMapping("/posts")
-// public String index(Model model) {
-//     Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-//     model.addAttribute("posts", posts);
-//     model.addAttribute("post", new Post());
-//     return "posts/index";
-   
-// @PostMapping("/posts")
-// public RedirectView create(@ModelAttribute Post post, Principal principal) {
-//     post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-//     post.setUser(getLoggedInUser(principal));
-//     repository.save(post);
-//     return new RedirectView("/posts");
-// }
-
-// @GetMapping("/comments")
-// public String index(Model model) {
-//     Iterable<Comment> comments = commentRepository.findAll();
-//     model.addAttribute("comment", new Comment());
-//     model.addAttribute("comments", comments);
-//     return "comments/index";
-// }
