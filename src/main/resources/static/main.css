@@ -211,3 +211,18 @@ img {
     font-family: 'Monaco', cursive;
     font-size: 16px;
 }
+
+.changephoto {
+    width: 150px; 
+    float:left; 
+    padding: 20px;
+    text-align: center;
+    justify-content: center; 
+    background: #a1ecb2; 
+    margin:10px;
+    font-family: 'Monaco', cursive;
+    font-size: 16px;
+    font-weight: bold;
+    border: 5px solid #a1ecb2;
+    box-shadow: 0 0 10px 0 rgb(203, 240, 240);
+}
