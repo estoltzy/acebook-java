@@ -54,6 +54,9 @@ public class Post {
     @JoinColumn(name="user_id")
     private User user;
 
+    @OneToMany( mappedBy = "post", fetch = FetchType.LAZY)
+    private List<Comment> comments;
+
 
 
     public Post() {}
