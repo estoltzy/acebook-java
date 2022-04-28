@@ -20,8 +20,9 @@
         Signed in as <span sec:authentication="name"></span>
     </div>
 
+    <div class="postcontent">
     <form action="#" th:action="@{/posts}" th:object="${post}" method="post">
-        <p>Content: <input type="text" th:field="*{content}" /></p>
+        <p>What's on your mind? <input type="text" th:field="*{content}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 
@@ -29,19 +30,16 @@
     th:object="${post}" method="post"
     enctype="multipart/form-data"
     >
-    ...
-    <div>
      
-    <label>Photos: </label>
+    <label>Upload Content: </label>
     <input type="file" name="image" accept="image/png, image/jpeg" />
-     
-    </div>
-    ...
-</form>
+   
+    </form></div>
 
+    <div class="reversebutton">
     <form action="#" th:action="@{/posts/reverse}" method="get">
         <p><input type="submit" value="View Newest First" /></p>
-    </form>
+    </form></div>
 
     
     <ul th:each="this_post: ${posts}">

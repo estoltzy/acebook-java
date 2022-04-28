@@ -1,5 +1,9 @@
 header {
-    background-color: #f9faf9;
+    background-color: #98daee;
+    opacity: 0.8;
+    background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #98daee 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0,10px 10px;
     color: black;
     padding: 20px;
     display: flex;
@@ -52,7 +56,7 @@ h1 {
   
 @keyframes link-color {
     100% {
-      color: #fbff00;
+      color: #98daee;
       background-color: rgba(34, 32, 32, 0.518);
     }
 }
@@ -70,9 +74,10 @@ h1 {
 
 .contact-form {
     width: 500px;
+    border: 5px double #98daee;
     background-color: #fff;
-    box-shadow: 0 0 10px 0 #999;
-    margin-top: 100px;
+    box-shadow: 0 0 10px 0 rgb(203, 240, 240);
+    margin-top: 200px;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
@@ -162,4 +167,27 @@ img {
     margin-left: 360px;
     border-radius: 10px;
     float: left;
+}
+
+.postcontent {
+    width: 600px;
+    border: 5px double #98daee;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    left: 50%;
+    margin-left: 360px;
+    font-family: 'Monaco', cursive;
+    font-size: 20px;
+}
+
+.reversebutton {
+    width: 600px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    left: 50%;
+    margin-left: 360px;
+    font-family: 'Monaco', cursive;
+    font-size: 20px;
 }
