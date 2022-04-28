@@ -15,10 +15,13 @@
 
     <body>
         <ul th:each="this_user: ${users}">
-            <a th:text="${this_user.username}" />
-            <form action="#" th:action="@{/users/message-friend}" method="get">
+            <div class="addfriend">
+                <img th:src="${this_user.photoLocation}" ></img></div>
+            <div class="username">
+            <a th:text="${this_user.username}" ></a></div>
+            <div class="friendbutton"><form action="#" th:action="@{/users/message-friend}" method="get">
                 <input type='submit' value="Add friend" />
-            </form>
+            </form></div>
 
         </ul>
 
