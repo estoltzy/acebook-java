@@ -8,11 +8,15 @@
     </head>
     <body>
     
+    <header>
+        <h1>Acebook : Connecting Social Butterflies</h1>
+    </header>
+
     <div th:insert="navbar :: navbar">  </div>
 
-    <h1>Friend request sent, please use the form below if you would like to send a message with your request </h1>
+    <h2>Friend request sent, please use the form below if you would like to send a message with your request </h2>
 
-    <div sec:authorize="isAuthenticated()">
+    <div class="authorization" sec:authorize="isAuthenticated()">
         Signed in as <span sec:authentication="name"></span>
     </div>
 

@@ -25,6 +25,17 @@ h1 {
     margin: 30px;
 }
 
+h2 {
+    font-family: 'Monaco', cursive;
+    font-size: 40;
+    color: black;
+    word-spacing: 2;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+}
+
 .navbar {
     overflow: hidden;
     background-color: #a1ecb2;
