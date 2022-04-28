@@ -45,8 +45,9 @@
 
     
     <ul th:each="this_post: ${posts}">
-        <div class="username"> 
-        <img th:src="${this_post.user.photoLocation}" ></img>
+        <div class="userphoto">
+        <img th:src="${this_post.user.photoLocation}" ></img></div>
+        <div class="username">
         <a th:text="${this_post.user.username}" ></a></div>
         <div class="single-post">
         <a th:text="${this_post.content}" ></a></div>
