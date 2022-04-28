@@ -1,5 +1,7 @@
 package com.makersacademy.acebook.controller;
 
+import java.security.Principal;
+
 import com.makersacademy.acebook.model.Authority;
 import com.makersacademy.acebook.model.User;
 import com.makersacademy.acebook.repository.AuthoritiesRepository;
@@ -53,38 +55,16 @@ public class UsersController {
 
     @GetMapping("/account")
     public String addProfilePhoto(Model model) {
-        Iterable<User> users = userRepository.findAll();
-        model.addAttribute("photoLocation", users);
+        model.addAttribute("user", new User());
         return "/account";
     }
 
     @PostMapping("/account")
-    public RedirectView addProfilePhoto(@ModelAttribute User user, String photoLocation) {
-        user.setPhotoLocation(photoLocation);
-        userRepository.save(user);
+    public RedirectView addProfilePhoto(@ModelAttribute User user, Principal principal) {
+        User loggedInUser = PostsController.getLoggedInUser(principal, userRepository);
+        loggedInUser.setPhotoLocation(user.getPhotoLocation());
+        userRepository.save(loggedInUser);
         return new RedirectView("/account");
     }
 }
 
-// @GetMapping("/posts")
-// public String index(Model model) {
-//     Iterable<Post> posts = repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-//     model.addAttribute("posts", posts);
-//     model.addAttribute("post", new Post());
-//     return "posts/index";
-   
-// @PostMapping("/posts")
-// public RedirectView create(@ModelAttribute Post post, Principal principal) {
-//     post.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-//     post.setUser(getLoggedInUser(principal));
-//     repository.save(post);
-//     return new RedirectView("/posts");
-// }
-
-// @GetMapping("/comments")
-// public String index(Model model) {
-//     Iterable<Comment> comments = commentRepository.findAll();
-//     model.addAttribute("comment", new Comment());
-//     model.addAttribute("comments", comments);
-//     return "comments/index";
-// }

@@ -35,7 +35,7 @@ public class User {
     private boolean enabled;
 
     @Column(name="user_photo")
-    private String photoLocation;
+    private String photoLocation="https://i.pinimg.com/originals/7d/ad/68/7dad68f5621e8b7d675eac0bbb904c33.jpg";
 
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Post> posts;
