@@ -78,5 +78,19 @@ public class PostsController {
             repository.save(post);
         }
         return new RedirectView("/posts");
-    }
+ }
+ @GetMapping("/posts/comments")
+ public String comments(Model model) {
+     Iterable<Comment> comments = commentRepository.findAll();
+     model.addAttribute("comment", new Comment());
+     model.addAttribute("comments", comments);
+     return "posts/comments";
+ }
+
+ @PostMapping("posts/comments")
+ public RedirectView create(@ModelAttribute Comment comment) {
+     commentRepository.save(comment);
+     return new RedirectView("/posts/comments");
+ }
+
 }
