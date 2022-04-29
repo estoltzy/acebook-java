@@ -15,10 +15,14 @@
         
     <div th:insert="navbar :: navbar">  </div>
 
+    <h2> Create a New Account </h2>
+
+    <div class="signup">
         <form action="#" th:action="@{/users}" th:object="${user}" method="post">
-            <p>Username: <input type="text" th:field="*{username}" /></p>
-            <p>Password: <input type="password" th:field="*{password}" /></p>
+            <p>Set Username: <input type="text" th:field="*{username}" /></p>
+            <p>New Password: <input type="password" th:field="*{password}" /></p>
             <p><input type="submit" value="Submit" id="submit"/> <input type="reset" value="Reset" /></p>
         </form>
+    </div>
     </body>
 </html>
