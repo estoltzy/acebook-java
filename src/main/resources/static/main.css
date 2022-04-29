@@ -188,7 +188,7 @@ img {
     text-align: center;
     justify-content: center;
     left: 50%;
-    margin-left: 360px;
+    margin-left: 400px;
     font-family: 'Monaco', cursive;
     font-size: 20px;
 }
@@ -250,3 +250,19 @@ img {
     align-items: center;
     text-align: center;
   }
+
+.signup {
+    width: 300px; 
+    padding: 20px;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    background: #a1ecb2; 
+    margin: 520px;
+    margin-top: 20px;
+    font-family: 'Monaco', cursive;
+    font-size: 16px;
+    font-weight: bold;
+    border: 5px solid #a1ecb2;
+    box-shadow: 0 0 10px 0 rgb(203, 240, 240);
+}
