@@ -238,3 +238,15 @@ img {
     border: 5px solid #a1ecb2;
     box-shadow: 0 0 10px 0 rgb(203, 240, 240);
 }
+
+.homepage_image {
+    display: block;
+    margin: 80px;
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+  }
