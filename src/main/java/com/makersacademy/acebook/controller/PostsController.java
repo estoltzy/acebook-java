@@ -79,18 +79,21 @@ public class PostsController {
         }
         return new RedirectView("/posts");
  }
- @GetMapping("/posts/comments")
- public String comments(Model model) {
-     Iterable<Comment> comments = commentRepository.findAll();
+ @GetMapping("/posts/{id}/comments")
+ public String comments(Model model, @PathVariable("id") int postID) {
+    Iterable<Comment> comments = commentRepository.findAll();
      model.addAttribute("comment", new Comment());
      model.addAttribute("comments", comments);
+     model.addAttribute("postID", postID);
      return "posts/comments";
  }
 
- @PostMapping("posts/comments")
- public RedirectView create(@ModelAttribute Comment comment) {
+ @PostMapping("/posts/{id}/comments")
+ public RedirectView create(@ModelAttribute Comment comment, @PathVariable("id") int postID) { 
+   Optional<Post> post = repository.findById(Long.valueOf(postID));
+    comment.setPost(post.get());
      commentRepository.save(comment);
-     return new RedirectView("/posts/comments");
+     return new RedirectView("/posts/" + postID + "/comments");
  }
 
 }

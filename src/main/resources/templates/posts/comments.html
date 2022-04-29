@@ -20,13 +20,13 @@
         Signed in as <span sec:authentication="name"></span>
     </div>
 
-    <form action="#" th:action="@{/posts/comments}" th:object="${comment}" method="post">
+    <form action="#" th:action="@{'/posts/' + ${postID} + '/comments'}" th:object="${comment}" method="post">
         <p>Comment: <input type="text" th:field="*{comment_content}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 
-    <ul> <ul th:each="comment: ${comments}">
-        <li th:text="${comment.comment_content}" />
+    <ul> <ul th:each="comments: ${comments}">
+        <li th:text="${comments.comment_content}" />
     </ul>
         
     
