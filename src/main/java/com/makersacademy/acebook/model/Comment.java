@@ -57,6 +57,7 @@ Post post;
     public void setcomment_content(String comment_content) { this.comment_content = comment_content; }
 
     public Post getPost() { return this.post; }
-    public void setUser(Post post) { this.post = post; }
+    public void setPost(Post post) { this.post = post; }
+
 
     }
