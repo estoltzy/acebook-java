@@ -20,13 +20,18 @@
         Signed in as <span sec:authentication="name"></span>
     </div>
 
+    <h3>* Please bear with us! This area is under construction *</h3>
+
+    <div class="postcontent">
     <form action="#" th:action="@{/posts/comments}" th:object="${comment}" method="post">
         <p>Comment: <input type="text" th:field="*{comment_content}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+    </form></div>
 
     <ul> <ul th:each="comment: ${comments}">
-        <li th:text="${comment.comment_content}" />
+        <div class="comment">
+        <a th:text="${comment.comment_content}" ></a>
+    </div>
     </ul>
         
     

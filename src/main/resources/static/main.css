@@ -47,6 +47,17 @@ h2 {
     font-size: 40;
 }
 
+h3 {
+    font-family: 'Monaco', cursive;
+    font-size: 20;
+    color: black;
+    word-spacing: 2;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px;
+}
+
 .navbar a {
     float: left;
     display: block;
@@ -265,4 +276,17 @@ img {
     font-weight: bold;
     border: 5px solid #a1ecb2;
     box-shadow: 0 0 10px 0 rgb(203, 240, 240);
+}
+
+.comment {
+    background-color: white;
+    width: 600px;
+    border: 5px solid #98daee;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    left: 50%;
+    margin-left: 320px;
+    font-family: 'Monaco', cursive;
+    font-size: 20px;
 }
